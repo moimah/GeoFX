@@ -143,7 +143,7 @@ public class RootController implements Initializable {
 			String languaje = l[0].getName().concat(" (").concat(service.getIPAPI(ip).getCountryCode().concat(")"));
 			String callingCode = service.getIPAPI(ip).getLocation().getCallingCode();
 			String zipCode = service.getIPAPI(ip).getZip();
-			String timeZone = service.getIPAPI(ip).getZip();
+			String timeZone = service.getWorldTimeAPI().getTimezone();
 			String currency = service.getPosition(ip).getCurrency();
 			
 			//Connection
@@ -243,8 +243,7 @@ public class RootController implements Initializable {
 	private void progressDialog(Task tarea){
 		
 		//Inicicar la tarea a realizar 
-	   tarea = executeTask();
-			
+	   tarea = executeTask();			
 		
 	    ProgressDialog dialog = new ProgressDialog(tarea);	    
 	    dialog.setGraphic(null);  	   
